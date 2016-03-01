@@ -33,8 +33,9 @@
         <br />
         <br />
         <br />
-        <br />
-        <asp:ContentPlaceHolder ID="PlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        <div>
+            <asp:ContentPlaceHolder ID="PlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>
