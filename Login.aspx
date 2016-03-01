@@ -43,21 +43,23 @@
                     <asp:TextBox ID="TextBox2" class="form-control" runat="server" placeholder="Digite aqui sua senha!" type="password"></asp:TextBox>
                     <div class="col-xs-6 col-md-4"></div>
                 </div>
-                <br />
+            </div>
+            <br />
+            <span class="auto-style1"><asp:Label ID="Label1" runat="server" Style="font-family: 'Times New Roman', Times, serif; font-size: 20px"></asp:Label></span>
+            <div class="row">
                 <div class="col-xs-6 col-md-4"></div>
                 <div class="col-xs-6 col-md-4">
-                    <asp:Label ID="Label1" runat="server" Style="font-family: 'Times New Roman', Times, serif; font-size: 20px"></asp:Label>
+                <div class="col-xs-6 col-md-4"></div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xs-6 col-md-4"></div>
+                <div class="col-xs-6 col-md-4">
+                    <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Entrar" OnClick="Button1_Click" />
                 </div>
                 <div class="col-xs-6 col-md-4"></div>
             </div>
-            <br />
-            <br />
-            <div class="col-xs-6 col-md-4"></div>
-            <div class="col-xs-6 col-md-4">
-                <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Entrar" OnClick="Button1_Click" />
-            </div>
-            <div class="col-xs-6 col-md-4"></div>
-        </div>
         </div>
     </form>
 </body>
