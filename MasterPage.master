@@ -17,13 +17,16 @@
             </div>
             <br />
             <div class="col-md-1">
-                <button type="button" class="btn btn-primary btn-lg">Produtos</button>
+                <asp:Button class="btn btn-primary btn-lg" ID="Button4" runat="server" Text="Produtos" Width="100px" />
             </div>
             <div class="col-md-1">
-                <button type="button" class="btn btn-primary btn-lg">Usuários</button>
+                <asp:Button class="btn btn-primary btn-lg" ID="Button3" runat="server" Text="Usuários" Width="100px" />
             </div>
             <div class="col-md-1">
-                <asp:Button class="btn btn-primary btn-lg" ID="Button1" runat="server" OnClick="Button1_Click" Text="Sair" />
+                <asp:Button class="btn btn-primary btn-lg" ID="Button5" runat="server" Text="Editoras" Width="100px" />
+            </div>
+            <div class="col-md-1">
+                <asp:Button class="btn btn-primary btn-lg" ID="Button1" runat="server" OnClick="Button1_Click" Text="Sair" Width="100px" />
             </div>
         </div>
         <br />

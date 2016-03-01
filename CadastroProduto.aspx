@@ -2,6 +2,6 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="PlaceHolder1">
     <div class="col-cadastro">
-        teste
+         
     </div>
 </asp:Content>
