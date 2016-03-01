@@ -38,8 +38,8 @@ public partial class Login : System.Web.UI.Page
     public void verificalogin(string login, string senha)
     {
         string precedure = "VerificaLogin";
-        string connectionString = "Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio";
-        //string connectionString = "Server=172.31.48.151\\SQLSERVER2008;Database=OCR59_Teste;user=caio.ragazzi;password=1234abcd@";
+        //string connectionString = "Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio";
+        string connectionString = "Server=172.31.48.151\\SQLSERVER2008;Database=OCR59_Teste;user=caio.ragazzi;password=1234abcd@";
         string pegalogin = string.Empty;
 
         using (SqlConnection connection = new SqlConnection(connectionString))
