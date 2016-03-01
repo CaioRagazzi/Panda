@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Código</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail2" placeholder="Código de Barras" />
+                    <input type="email" class="form-control" id="inputEmail2" placeholder="Código de barras" />
                 </div>
             </div>
         </div>
@@ -32,12 +32,13 @@
         <div class="col-xs-6 col-md-4">
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Quantidade</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Quantidade" />
-                </div>
             </div>
         </div>
-        <div class="col-xs-6 col-md-4"></div>
+        <div class="col-xs-6 col-md-4">
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Quantidade" />
+            </div>
+        </div>
         <div class="col-xs-6 col-md-4"></div>
     </div>
 

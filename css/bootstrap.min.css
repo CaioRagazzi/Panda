@@ -2136,6 +2136,7 @@ pre {
 
     .col-sm-2 {
         width: 16.66666667%;
+
     }
 
     .col-sm-1 {
@@ -2962,6 +2963,7 @@ output {
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     text-align: center;
+    
 }
 
     .form-control:focus {
