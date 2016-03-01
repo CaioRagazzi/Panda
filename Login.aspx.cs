@@ -56,7 +56,7 @@ public partial class Login : System.Web.UI.Page
                 if (reader.HasRows)
                 {
                     FormsAuthentication.RedirectFromLoginPage(TextBox1.Text, true);
-                    Response.Redirect("Default.aspx");
+                    Response.Redirect("CadastroProduto.aspx");
                 }
                 else
                 {
