@@ -79,7 +79,7 @@
                     <asp:Button class="btn btn-primary btn-xs" ID="Button3" runat="server" Text="Cancelar" CommandName="Cancel"/>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Button class="btn btn-primary btn-xs" ID="Button4" runat="server" Text="Editar" CommandName="Edit"/>
+                    <asp:Button class="btn btn-primary btn-xs" ID="Button4" runat="server" Text="Editar" CommandName="edit"/>
                     <asp:Button class="btn btn-primary btn-xs" ID="Button5" runat="server" Text="Deletar" CommandName="Delete"/>
                 </ItemTemplate>
             </asp:TemplateField>
