@@ -64,14 +64,20 @@
                 <div class="col-md-6">
                     <br />
                     <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Inserir" Width="405px"/>
+                    <br />
+                    <br />
                 </div>
             </div>
         </div>
     </div>
-    <asp:GridView ID="GridView1" runat="server">
+    
+    <asp:GridView class="table table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" Width="970px">
         <Columns>
-            <asp:BoundField AccessibleHeaderText="Coluna 1" />
-            <asp:BoundField DataField="Coluna1" HeaderText="Coluna1" SortExpression="Coluna1" />
+            <asp:BoundField DataField="Produto" HeaderText="Produto" SortExpression="Produto" />
+            <asp:BoundField DataField="Codigo" HeaderText="Codigo" SortExpression="Codigo" />
+            <asp:BoundField DataField="Valor" HeaderText="Valor" SortExpression="Valor" />
+            <asp:BoundField DataField="Editora" HeaderText="Editora" SortExpression="Editora" />
         </Columns>
     </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:OCR59_TesteConnectionString2 %>" SelectCommand="SELECT * FROM [Produtos]"></asp:SqlDataSource>
 </asp:Content>
