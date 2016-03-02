@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CadastroProduto.aspx.cs" Inherits="Cadastro" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="PlaceHolder1">
-
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-6">
@@ -46,61 +45,33 @@
             </div>
         </div>
     </div>
+
+        <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="inputEmail3" class="col-sm-2 control-label">Editora</label>
+                <div class="col-md-6">
+                    <asp:DropDownList class="btn btn-default dropdown-toggle" ID="DropDownList1" runat="server" Width="297px" DataSourceID="SqlDataSource1" DataTextField="Nome" DataValueField="Nome"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OCR59_TesteConnectionString %>" SelectCommand="SELECT [Nome] FROM [Editoras]"></asp:SqlDataSource>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-6">
                 <div class="col-md-6">
                     <br />
-                    <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Inserir" Width="405px" />
+                    <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Inserir" Width="405px"/>
                 </div>
             </div>
         </div>
     </div>
-        
-
-         
-        
-
-
-
-
-
-    <%--    <div class="row">
-        <div class="col-xs-6 col-md-4">
-            <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Código</label>
-                <div class="col-sm-10">
-                    <asp:TextBox class="form-control" placeholder="Código de barras" ID="TextBox2" runat="server"></asp:TextBox>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4"></div>
-        <div class="col-xs-6 col-md-4"></div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-6 col-md-4">
-            <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Quantidadr</label>
-                <div class="col-sm-10">
-                    <asp:TextBox placeholder="Quantidade" class="form-control" ID="TextBox4" runat="server"></asp:TextBox>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4"></div>
-        <div class="col-xs-6 col-md-4"></div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-6 col-md-4">
-            <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Preço</label>
-                <div class="col-sm-10">
-                    <asp:TextBox class="form-control" placeholder="Valor" ID="TextBox5" runat="server"></asp:TextBox>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-4"></div>
-        <div class="col-xs-6 col-md-4"></div>
-    </div>--%>
+    <asp:GridView ID="GridView1" runat="server">
+        <Columns>
+            <asp:BoundField AccessibleHeaderText="Coluna 1" />
+            <asp:BoundField DataField="Coluna1" HeaderText="Coluna1" SortExpression="Coluna1" />
+        </Columns>
+    </asp:GridView>
 </asp:Content>
