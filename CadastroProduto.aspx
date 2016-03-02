@@ -71,13 +71,5 @@
         </div>
     </div>
     
-    <asp:GridView class="table table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" Width="970px">
-        <Columns>
-            <asp:BoundField DataField="Produto" HeaderText="Produto" SortExpression="Produto" />
-            <asp:BoundField DataField="Codigo" HeaderText="Codigo" SortExpression="Codigo" />
-            <asp:BoundField DataField="Valor" HeaderText="Valor" SortExpression="Valor" />
-            <asp:BoundField DataField="Editora" HeaderText="Editora" SortExpression="Editora" />
-        </Columns>
-    </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:OCR59_TesteConnectionString2 %>" SelectCommand="SELECT * FROM [Produtos]"></asp:SqlDataSource>
+    <asp:GridView class="table table-bordered" ID="GridView1" runat="server" Width="967px"></asp:GridView>
 </asp:Content>
