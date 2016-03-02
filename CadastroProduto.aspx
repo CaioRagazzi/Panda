@@ -71,5 +71,18 @@
         </div>
     </div>
     
-    <asp:GridView class="table table-bordered" ID="GridView1" runat="server" Width="967px"></asp:GridView>
+    <asp:GridView class="table table-bordered" ID="GridView1" runat="server" Width="450px">
+        <Columns>
+            <asp:TemplateField>
+                <EditItemTemplate>
+                    <asp:Button ID="Button2" runat="server" Text="Alterar" CommandName="Update"/>
+                    <asp:Button ID="Button3" runat="server" Text="Cancelar" CommandName="Cancel"/>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Button ID="Button4" runat="server" Text="Editar" CommandName="Edit"/>
+                    <asp:Button ID="Button5" runat="server" Text="Deletar" CommandName="Delete"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
 </asp:Content>

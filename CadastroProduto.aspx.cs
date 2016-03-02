@@ -12,7 +12,7 @@ public partial class Cadastro : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
        
-        //Establishing the MySQL Connection
+        //Establishing the SQL Connection
         SqlConnection conn = new SqlConnection("Server=172.31.48.151\\SQLSERVER2008;Database=OCR59_Teste;user=caio.ragazzi;password=1234abcd@");
 
         string query;
@@ -35,7 +35,5 @@ public partial class Cadastro : System.Web.UI.Page
 
         //Bind the data
         GridView1.DataBind();
-
-        
     }
 }
