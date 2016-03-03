@@ -46,7 +46,7 @@
         </div>
     </div>
 
-        <div class="col-md-12">
+    <div class="col-md-12">
         <div class="row">
             <div class="col-md-6">
                 <label for="inputEmail3" class="col-sm-2 control-label">Editora</label>
@@ -63,26 +63,35 @@
             <div class="col-md-6">
                 <div class="col-md-6">
                     <br />
-                    <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Inserir" Width="405px"/>
+                    <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Inserir" Width="405px" />
                     <br />
                     <br />
                 </div>
             </div>
         </div>
     </div>
-    
-    <asp:GridView class="table table-bordered" ID="GridView1" runat="server" Width="450px" OnPageIndexChanging="TaskGridView_PageIndexChanging" OnRowEditing="TaskGridView_RowEditing" OnRowCancelingEdit="TaskGridView_RowCancelingEdit" OnRowUpdating="TaskGridView_RowUpdating">
-        <Columns>
-            <asp:TemplateField>
-                <EditItemTemplate>
-                    <asp:Button class="btn btn-primary btn-xs" ID="Button2" runat="server" Text="Alterar" CommandName="Update"/>
-                    <asp:Button class="btn btn-primary btn-xs" ID="Button3" runat="server" Text="Cancelar" CommandName="Cancel"/>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Button class="btn btn-primary btn-xs" ID="Button4" runat="server" Text="Editar" CommandName="edit"/>
-                    <asp:Button class="btn btn-primary btn-xs" ID="Button5" runat="server" Text="Deletar" CommandName="Delete"/>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
+    <div class="col-md-12">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" DataKeyNames="Id" Width="1162px"  CssClass="table table-hover table-striped" GridLines="None" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting">
+                        <Columns>
+                            <asp:BoundField DataField="Produto" HeaderText="Produto" />
+                            <asp:BoundField DataField="Quantidade" HeaderText="Quantidade" />
+                            <asp:BoundField DataField="Código" HeaderText="Código" />
+                            <asp:BoundField DataField="Valor" HeaderText="Valor" />
+                            <asp:BoundField DataField="Editora" HeaderText="Editora" />
+                            <asp:BoundField DataField="Id" HeaderText="Id" />
+                            <asp:CommandField ShowEditButton="true" ButtonType="Button" ItemStyle-Width="60" />
+                            <asp:CommandField ShowDeleteButton="true" ButtonType="Button" ItemStyle-Width="60" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+
 </asp:Content>
+
+

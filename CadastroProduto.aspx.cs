@@ -9,78 +9,77 @@ using System.Web.UI.WebControls;
 
 public partial class Cadastro : System.Web.UI.Page
 {
+    private SqlConnection conn = new SqlConnection("Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio");
     protected void Page_Load(object sender, EventArgs e)
     {
-       
-        //Establishing the SQL Connection
-        SqlConnection conn = new SqlConnection("Server=172.31.48.151\\SQLSERVER2008;Database=OCR59_Teste;user=caio.ragazzi;password=1234abcd@");
-
-        string query;
-        SqlCommand SqlCommand;
-        SqlDataReader reader;
-
-        SqlDataAdapter adapter = new SqlDataAdapter();
-        //Open the connection to db
-        conn.Open();
-
-        //Generating the query to fetch the contact details
-        query = "select * from [dbo].[Produtos]";
-
-        SqlCommand = new SqlCommand(query, conn);
-        adapter.SelectCommand = new SqlCommand(query, conn);
-        //execute the query
-        reader = SqlCommand.ExecuteReader();
-        //Assign the results 
-        GridView1.DataSource = reader;
-
-        //Bind the data
-        GridView1.DataBind();
+        if (!IsPostBack)
+        {
+            gvbind();
+        }
     }
 
-    public void CarregarGridView()
+    protected void gvbind()
     {
-        GridView1.DataSource = GridView1;
-        GridView1.DataBind();
-    }
-    protected void TaskGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
-    {
-        GridView1.PageIndex = e.NewPageIndex;
-        //Bind data to the GridView control.
-        GridView1.DataBind();
+        string connectionString = "Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio";
+        string script = "select Produto,COUNT(Produto) as quantidade,Código,Valor,Editora,Id from [dbo].[Produtos] group by Produto,Código,Valor,Editora,Id";
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = new SqlCommand(script, conn);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+            conn.Close();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+            }
+            else
+            {
+                ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+                int columncount = GridView1.Rows[0].Cells.Count;
+                GridView1.Rows[0].Cells.Clear();
+                GridView1.Rows[0].Cells.Add(new TableCell());
+                GridView1.Rows[0].Cells[0].ColumnSpan = columncount;
+                GridView1.Rows[0].Cells[0].Text = "No Records Found";
+            }
+        }
     }
 
-    public void TaskGridView_RowEditing(object sender, GridViewEditEventArgs e)
+    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
     {
-        //Set the edit index.
         GridView1.EditIndex = e.NewEditIndex;
-        //Bind data to the GridView control.
-        GridView1.DataBind();
+        gvbind();
     }
 
-    public void TaskGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+    protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
-        //Reset the edit index.
         GridView1.EditIndex = -1;
-        //Bind data to the GridView control.
-        GridView1.DataBind();
+        gvbind();
     }
 
-    public void TaskGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        //Retrieve the table from the session object.
-        DataTable dt = (DataTable)Session["TaskTable"];
+        GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
+        Label lbldeleteid = (Label)row.FindControl("lblID");
+        conn.Open();
+        using (SqlCommand cmd = new SqlCommand(procedure, conn))
+        {
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Produto",fi)
+        }
+            cmd.ExecuteNonQuery();
+        conn.Close();
+        gvbind();
 
-        //Update the values.
-        GridViewRow row = GridView1.Rows[e.RowIndex];
-        dt.Rows[row.DataItemIndex]["Id"] = ((TextBox)(row.Cells[1].Controls[0])).Text;
-        dt.Rows[row.DataItemIndex]["Description"] = ((TextBox)(row.Cells[2].Controls[0])).Text;
-        dt.Rows[row.DataItemIndex]["IsComplete"] = ((CheckBox)(row.Cells[3].Controls[0])).Checked;
-
-        //Reset the edit index.
-        GridView1.EditIndex = -1;
-
-        //Bind data to the GridView control.
-        GridView1.DataBind();
     }
+
 
 }
+
+
+
