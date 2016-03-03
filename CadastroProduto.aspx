@@ -51,8 +51,7 @@
             <div class="col-md-6">
                 <label for="inputEmail3" class="col-sm-2 control-label">Editora</label>
                 <div class="col-md-6">
-                    <asp:DropDownList class="btn btn-default dropdown-toggle" ID="DropDownList1" runat="server" Width="297px" DataSourceID="SqlDataSource1" DataTextField="Nome" DataValueField="Nome"></asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OCR59_TesteConnectionString %>" SelectCommand="SELECT [Nome] FROM [Editoras]"></asp:SqlDataSource>
+                    <asp:DropDownList ID="DropDownList1" runat="server" class="btn btn-default dropdown-toggle" Width="297px"></asp:DropDownList>
                 </div>
             </div>
         </div>

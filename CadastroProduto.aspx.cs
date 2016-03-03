@@ -9,18 +9,21 @@ using System.Web.UI.WebControls;
 
 public partial class Cadastro : System.Web.UI.Page
 {
-    private SqlConnection conn = new SqlConnection("Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio");
+    //private SqlConnection conn = new SqlConnection("Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio");
+    private SqlConnection conn = new SqlConnection("Server=172.31.48.151\\SQLSERVER2008;Database=OCR59_Teste;user=caio.ragazzi;password=1234abcd@");
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             gvbind();
+            populadropdown();
         }
     }
 
     protected void gvbind()
     {
-        string connectionString = "Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio";
+        //string connectionString = "Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio";
+        string connectionString = "Server=172.31.48.151\\SQLSERVER2008;Database=OCR59_Teste;user=caio.ragazzi;password=1234abcd@"; 
         string script = "select Produto,COUNT(Produto) as quantidade,Código,Valor,Editora,Id from [dbo].[Produtos] group by Produto,Código,Valor,Editora,Id";
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
@@ -79,6 +82,31 @@ public partial class Cadastro : System.Web.UI.Page
         }
 
 
+    }
+
+    public void populadropdown()
+    {
+        string precedure = "VerificaEditoras";
+        //string connectionString = "Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio";
+        string connectionString = "Server=172.31.48.151\\SQLSERVER2008;Database=OCR59_Teste;user=caio.ragazzi;password=1234abcd@";
+        string pegalogin = string.Empty;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            using (SqlCommand cmd = new SqlCommand(precedure, connection))
+            {
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                DropDownList1.DataSource = reader;
+                DropDownList1.DataTextField = "Nome";
+                DropDownList1.DataBind();
+                
+            }
+            connection.Close();
+        }
     }
 }
 
