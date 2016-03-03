@@ -63,7 +63,7 @@
             <div class="col-md-6">
                 <div class="col-md-6">
                     <br />
-                    <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Inserir" Width="405px" />
+                    <asp:Button class="btn btn-primary btn-lg btn-block" ID="Button1" runat="server" Text="Inserir" Width="405px"/>
                     <br />
                     <br />
                 </div>
@@ -83,7 +83,7 @@
                             <asp:BoundField DataField="Editora" HeaderText="Editora" />
                             <asp:BoundField DataField="Id" HeaderText="Id" />
                             <asp:CommandField ShowEditButton="true" ButtonType="Button" ItemStyle-Width="60" />
-                            <asp:CommandField ShowDeleteButton="true" ButtonType="Button" ItemStyle-Width="60" />
+                            <asp:CommandField ShowDeleteButton="true" ButtonType="Button" ItemStyle-Width="60" CausesValidation="true"/>
                         </Columns>
                     </asp:GridView>
                 </div>

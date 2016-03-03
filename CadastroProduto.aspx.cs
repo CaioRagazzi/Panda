@@ -64,6 +64,7 @@ public partial class Cadastro : System.Web.UI.Page
 
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
+
         string id = Convert.ToString(GridView1.DataKeys[e.RowIndex].Value.ToString());
         string procedure = ("DeletaProduto");
         conn.Open();
@@ -71,7 +72,6 @@ public partial class Cadastro : System.Web.UI.Page
         {
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Produto", id);
-
             cmd.ExecuteNonQuery();
             conn.Close();
             gvbind();
