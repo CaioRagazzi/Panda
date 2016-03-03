@@ -74,7 +74,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-8">
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" DataKeyNames="Id" Width="1162px"  CssClass="table table-hover table-striped" GridLines="None" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" DataKeyNames="Produto" Width="1162px"  CssClass="table table-hover table-striped" GridLines="None" OnRowEditing="GridView1_RowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting">
                         <Columns>
                             <asp:BoundField DataField="Produto" HeaderText="Produto" />
                             <asp:BoundField DataField="Quantidade" HeaderText="Quantidade" />

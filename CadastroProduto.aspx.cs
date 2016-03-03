@@ -64,21 +64,22 @@ public partial class Cadastro : System.Web.UI.Page
 
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
-        Label lbldeleteid = (Label)row.FindControl("lblID");
+        string id = Convert.ToString(GridView1.DataKeys[e.RowIndex].Value.ToString());
+        string procedure = ("DeletaProduto");
         conn.Open();
         using (SqlCommand cmd = new SqlCommand(procedure, conn))
         {
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Produto",fi)
-        }
+            cmd.Parameters.AddWithValue("@Produto", id);
+
             cmd.ExecuteNonQuery();
-        conn.Close();
-        gvbind();
+            conn.Close();
+            gvbind();
+
+        }
+
 
     }
-
-
 }
 
 
