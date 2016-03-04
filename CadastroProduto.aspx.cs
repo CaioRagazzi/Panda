@@ -10,7 +10,6 @@ using System.Configuration;
 
 public partial class Cadastro : System.Web.UI.Page
 {
-    //private SqlConnection conn = new SqlConnection("Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio");
     string connectionString = ConfigurationManager.ConnectionStrings["Panda"].ConnectionString;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -82,8 +81,7 @@ public partial class Cadastro : System.Web.UI.Page
     public void populadropdown()
     {
         string precedure = "VerificaEditoras";
-        //string connectionString = "Server=CAIORAGAZZI;Database=Panda;user=sa;password=caiocaio";
-        string connectionString = "Server=172.31.48.151\\SQLSERVER2008;Database=OCR59_Teste;user=caio.ragazzi;password=1234abcd@";
+        string connectionString = ConfigurationManager.ConnectionStrings["Panda"].ConnectionString;
         string pegalogin = string.Empty;
 
         using (SqlConnection connection = new SqlConnection(connectionString))
