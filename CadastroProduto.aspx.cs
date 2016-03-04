@@ -36,15 +36,8 @@ public partial class Cadastro : System.Web.UI.Page
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.HasRows)
-                {
-                    GridView1.DataSource = reader;
-                    GridView1.DataBind();
-                }
-                else
-                {
-
-                }
+                GridView1.DataSource = reader;
+                GridView1.DataBind();
 
             }
         }
