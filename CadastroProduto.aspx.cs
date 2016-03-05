@@ -101,6 +101,29 @@ public partial class Cadastro : System.Web.UI.Page
             connection.Close();
         }
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string precedure = "InserirProduto";
+        string connectionString = ConfigurationManager.ConnectionStrings["Panda"].ConnectionString;
+        string pegalogin = string.Empty;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            using (SqlCommand cmd = new SqlCommand(precedure, connection))
+            {
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Produto", TextBox1.Text);
+                cmd.Parameters.AddWithValue("@Código", TextBox2.Text);
+                cmd.Parameters.AddWithValue("@Valor", TextBox3.Text);
+                cmd.Parameters.AddWithValue("@Editora", TextBox4.Text);
+                SqlDataReader reader = cmd.ExecuteReader();
+                gvbind();
+            }
+            connection.Close();
+        }
+    }
 }
 
 
