@@ -94,7 +94,7 @@ public partial class Cadastro : System.Web.UI.Page
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 DropDownList1.DataSource = reader;
-                DropDownList1.DataTextField = "Nome";
+                DropDownList1.DataTextField = "NomeEditora";
                 DropDownList1.DataBind();
 
             }
@@ -117,7 +117,7 @@ public partial class Cadastro : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@Produto", TextBox1.Text);
                 cmd.Parameters.AddWithValue("@Código", TextBox2.Text);
                 cmd.Parameters.AddWithValue("@Valor", TextBox3.Text);
-                cmd.Parameters.AddWithValue("@Editora", TextBox4.Text);
+                cmd.Parameters.AddWithValue("@NomeEditora", TextBox4.Text);
                 SqlDataReader reader = cmd.ExecuteReader();
                 gvbind();
             }
